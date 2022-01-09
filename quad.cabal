@@ -1,0 +1,136 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           quad
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/quad#readme>
+homepage:       https://github.com/alenkis/quad#readme
+bug-reports:    https://github.com/alenkis/quad/issues
+author:         Alen Kis
+maintainer:     Alen Kis
+copyright:      2022 Alen Kis
+license:        BSD4
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/alenkis/quad
+
+library
+  exposed-modules:
+      Core
+  other-modules:
+      Paths_quad
+  hs-source-dirs:
+      src
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+  ghc-options: -F -pgmF=record-dot-preprocessor
+  build-depends:
+      aeson
+    , async
+    , base
+    , butcher
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , network
+    , record-hasfield
+    , rio
+    , scotty
+    , serialise
+    , stm
+    , time
+    , typed-process
+    , wai-cors
+    , yaml
+  default-language: Haskell2010
+
+executable quad-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_quad
+  hs-source-dirs:
+      app
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+  ghc-options: -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , async
+    , base
+    , butcher
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , network
+    , quad
+    , record-hasfield
+    , rio
+    , scotty
+    , serialise
+    , stm
+    , time
+    , typed-process
+    , wai-cors
+    , yaml
+  default-language: Haskell2010
+
+test-suite quad-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_quad
+  hs-source-dirs:
+      test
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+  ghc-options: -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , async
+    , base
+    , butcher
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , network
+    , quad
+    , record-hasfield
+    , rio
+    , scotty
+    , serialise
+    , stm
+    , time
+    , typed-process
+    , wai-cors
+    , yaml
+  default-language: Haskell2010

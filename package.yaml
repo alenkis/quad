@@ -1,0 +1,77 @@
+name:                quad
+version:             0.1.0.0
+github:              "alenkis/quad"
+license:             BSD4
+author:              "Alen Kis"
+maintainer:          "Alen Kis"
+copyright:           "2022 Alen Kis"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/quad#readme>
+
+default-extensions:
+  - BlockArguments
+  - DeriveAnyClass
+  - DeriveGeneric
+  - LambdaCase
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - StrictData
+
+dependencies:
+  - aeson
+  - async
+  - base
+  - butcher
+  - hslogger
+  - http-client
+  - http-conduit
+  - http-types
+  - network
+  - record-hasfield
+  - rio
+  - scotty
+  - serialise
+  - stm
+  - time
+  - typed-process
+  - wai-cors
+  - yaml
+
+ghc-options:
+    - -F -pgmF=record-dot-preprocessor
+
+library:
+  source-dirs: src
+
+executables:
+  quad-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - quad
+
+tests:
+  quad-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - quad
